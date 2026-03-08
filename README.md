@@ -41,7 +41,7 @@ In plain words: it is a tiny "idle screensaver ad" engine for terminal apps, wit
 <table>
   <tr>
     <td width="33%">
-      <img src="./assets/readme/campaign-mcd.svg" alt="McDonald's campaign in terminal shell" />
+      <img src="./assets/readme/campaign-mcd.gif" alt="McDonald's campaign in terminal shell (animated)" />
       <br />
       <b>McDonald's Midnight Fuel</b>
       <br />
@@ -50,7 +50,7 @@ In plain words: it is a tiny "idle screensaver ad" engine for terminal apps, wit
       Asset: <code>termad/assets/mcd_night_ad.json</code>
     </td>
     <td width="33%">
-      <img src="./assets/readme/campaign-lobster.svg" alt="Open Claw lobster campaign in terminal shell" />
+      <img src="./assets/readme/campaign-lobster.gif" alt="Open Claw lobster campaign in terminal shell (animated)" />
       <br />
       <b>Open Claw Lobster Persona</b>
       <br />
@@ -59,7 +59,7 @@ In plain words: it is a tiny "idle screensaver ad" engine for terminal apps, wit
       Asset: <code>termad/assets/open_claw_macmini_ad.json</code>
     </td>
     <td width="33%">
-      <img src="./assets/readme/campaign-macmini.svg" alt="Mac mini sponsorship campaign in terminal shell" />
+      <img src="./assets/readme/campaign-macmini.gif" alt="Mac mini sponsorship campaign in terminal shell (animated)" />
       <br />
       <b>Mac mini Precision Sponsor</b>
       <br />
@@ -69,6 +69,28 @@ In plain words: it is a tiny "idle screensaver ad" engine for terminal apps, wit
     </td>
   </tr>
 </table>
+
+## Sponsorship / 广告合作
+
+**EN**  
+Want to run ads in developer terminals? You can sponsor a campaign with termad and distribute it through our ad-network style integration. We support campaign onboarding, creative integration, and multi-project ad distribution with revenue-share options.
+
+**中文**  
+想投放开发者终端广告？可以通过 termad 发起赞助投放，并接入我们的广告联盟分发能力。支持广告创意接入、投放上线，以及跨项目分发与分成合作。
+
+### Available Sponsor Slots / 可投放板位
+
+| Slot / 板位 | Format / 形式 | Placement / 位置 | Suitable For / 适合品牌 |
+| --- | --- | --- | --- |
+| Hero Idle Slot | 6-20s animated ASCII | Main idle trigger in demo and CLI waiting scenes | Consumer brands, food & beverage, lifestyle |
+| Character Story Slot | Multi-frame mascot sequence | Persona-led campaign block | IP brands, games, community campaigns |
+| Hardware Sponsor Slot | Product-focused storyboard | Performance/dev-tool themed scenes | Hardware, cloud infra, dev tooling |
+
+### Contact / 联系方式
+
+- GitHub: [@Wendell-Guan](https://github.com/Wendell-Guan)
+- Open an issue with title: `[Sponsorship] Brand Name - Campaign Idea`
+- Include: target audience, campaign message, landing URL, expected run window
 
 ## Demo Commands for Campaign Content
 
