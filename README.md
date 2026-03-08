@@ -2,6 +2,21 @@
 
 # termad
 
+<p align="center">
+  <b>Idle-time ad engine for CLI apps</b><br/>
+  <i>When your terminal waits, your brand performs.</i>
+</p>
+
+<p align="center">
+  <a href="#campaign-showcase">Campaign Showcase</a>
+  ·
+  <a href="#install">Install</a>
+  ·
+  <a href="#public-api">API</a>
+  ·
+  <a href="#demo-cli">Demo</a>
+</p>
+
 **Status:** Alpha (`v0.1.0-alpha.1`, package version `0.1.0a1`)
 
 > "If your terminal is waiting anyway, it might as well do something useful."
@@ -13,6 +28,62 @@ When your user stops typing for a bit, it shows an ASCII ad animation right insi
 
 In plain words: it is a tiny "idle screensaver ad" engine for terminal apps, without opening extra windows or hijacking your normal I/O flow.
 一句话：它是一个给终端应用用的“空闲屏保广告”小引擎，不会打开新窗口，也不会劫持你正常的输入输出流程。
+
+## Why this feels pro
+
+- Native terminal shell look: no browser tab, no popup window.
+- Instant enter/exit: show on idle, dismiss on any keypress.
+- Campaign-ready assets: plug in sponsor creatives as ASCII frame sequences.
+- Creator-friendly storytelling: logo -> product -> slogan -> CTA.
+
+## Campaign Showcase
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="./assets/readme/campaign-mcd.svg" alt="McDonald's campaign in terminal shell" />
+      <br />
+      <b>McDonald's Midnight Fuel</b>
+      <br />
+      Logo + fries + burger + late-night CTA, designed for coding-after-dark sessions.
+      <br />
+      Asset: <code>termad/assets/mcd_night_ad.json</code>
+    </td>
+    <td width="33%">
+      <img src="./assets/readme/campaign-lobster.svg" alt="Open Claw lobster campaign in terminal shell" />
+      <br />
+      <b>Open Claw Lobster Persona</b>
+      <br />
+      Character-led brand identity sequence for memorable terminal presence.
+      <br />
+      Asset: <code>termad/assets/open_claw_macmini_ad.json</code>
+    </td>
+    <td width="33%">
+      <img src="./assets/readme/campaign-macmini.svg" alt="Mac mini sponsorship campaign in terminal shell" />
+      <br />
+      <b>Mac mini Precision Sponsor</b>
+      <br />
+      Hardware sponsorship-style frame set focused on performance and quiet power.
+      <br />
+      Asset: <code>termad/assets/open_claw_macmini_ad.json</code>
+    </td>
+  </tr>
+</table>
+
+## Demo Commands for Campaign Content
+
+Run these to recreate the branded terminal-ad feeling:
+
+```bash
+# McDonald's sequence
+python examples/demo_claude_code.py
+
+# Lobster + Mac mini sequence
+python examples/demo_open_claw.py
+
+# Core engine behavior (DVD-style default ad)
+python examples/demo_cli.py
+```
 
 ## Support and Limitations
 
