@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "termad"
+version = "0.1.0a1"
+description = "ASCII animated terminal ads for idle CLI sessions on macOS"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "termad contributors" }]
+license = "MIT"
+keywords = ["terminal", "cli", "ascii", "ads", "animation", "macos"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: MacOS",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Terminals",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2,<9",
+  "build>=1.2,<2",
+  "twine>=6,<7",
+  "pkginfo>=1.12",
+]
+
+[tool.setuptools]
+package-dir = { "" = "termad" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["termad"]
+
+[tool.setuptools.package-data]
+termad = ["assets/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
