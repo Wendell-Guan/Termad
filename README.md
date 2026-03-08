@@ -1,3 +1,5 @@
+![termad banner](./cp_image_1772996928140.png)
+
 # termad
 
 **Status:** Alpha (`v0.1.0-alpha.1`, package version `0.1.0a1`)
