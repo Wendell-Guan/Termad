@@ -7,6 +7,10 @@
   <i>Phase 1 wins attention. Phase 2 defines the standard.</i>
 </p>
 
+> Ads were built for human attention.  
+> The next protocol is built for Agent decisions.  
+> `termad` is the bridge from terminal creativity to Agent-native distribution.
+
 <p align="center">
   <a href="#roadmap">Roadmap</a>
   ·
