@@ -3,12 +3,16 @@
 # termad
 
 <p align="center">
-  <b>Idle-time ad engine for CLI apps</b><br/>
-  <i>When your terminal waits, your brand performs.</i>
+  <b>From Terminal Ads to Agent Ad Protocol</b><br/>
+  <i>Phase 1 wins attention. Phase 2 defines the standard.</i>
 </p>
 
 <p align="center">
+  <a href="#roadmap">Roadmap</a>
+  ·
   <a href="#campaign-showcase">Campaign Showcase</a>
+  ·
+  <a href="#sponsorship">Sponsorship</a>
   ·
   <a href="#install">Install</a>
   ·
@@ -19,22 +23,44 @@
 
 **Status:** Alpha (`v0.1.0-alpha.1`, package version `0.1.0a1`)
 
-> "If your terminal is waiting anyway, it might as well do something useful."
-> "如果你的终端反正都在等，不如让它做点有用的事。"
+> "Every media shift creates a new ad protocol.
+> Agent-native software needs an Agent-native ad protocol."
 
-`termad` is for CLI tools that have quiet moments.
-When your user stops typing for a bit, it shows an ASCII ad animation right inside the same terminal, then disappears cleanly on any keypress.
-`termad` 是给 CLI 工具用的：当工具出现短暂“空档”时，它可以在同一个终端里播放 ASCII 广告动画，用户按任意键就会干净退出并恢复终端。
+`termad` started as an idle-time ad runtime for terminal apps.
+It now has a bigger mission: evolve into the open protocol layer for Agent-era sponsorship and distribution.
 
-In plain words: it is a tiny "idle screensaver ad" engine for terminal apps, without opening extra windows or hijacking your normal I/O flow.
-一句话：它是一个给终端应用用的“空闲屏保广告”小引擎，不会打开新窗口，也不会劫持你正常的输入输出流程。
+Today: it plays ads in a real terminal shell without opening extra windows or hijacking normal I/O.
+Next: it moves from creative-only assets to machine-readable sponsored capability offers for Agents.
 
-## Why this feels pro
+## Roadmap
+
+### Step 1 (v1): Human-visible terminal ads
+
+Ship the original `termad` experience (including the DVD bounce ad) as a polished open-source package.
+
+Goals:
+
+- Build awareness for the name `termad`.
+- Earn GitHub stars and developer mindshare.
+- Prove that terminal-native ad experiences can be memorable without breaking UX.
+
+### Step 2 (v2): Agent Ad Protocol
+
+Evolve from "ads people watch" to "sponsored capability offers Agents can evaluate safely."
+
+Planned direction:
+
+- Define an open, machine-readable sponsorship schema.
+- Add transparent sponsored markers and auditable decision logs.
+- Support outcome-based attribution: considered -> selected -> successful task completion.
+- Keep decision integrity: sponsors can buy discovery, not forced selection.
+
+## Why this design works now
 
 - Native terminal shell look: no browser tab, no popup window.
-- Instant enter/exit: show on idle, dismiss on any keypress.
-- Campaign-ready assets: plug in sponsor creatives as ASCII frame sequences.
-- Creator-friendly storytelling: logo -> product -> slogan -> CTA.
+- Instant entry/exit: show on idle, dismiss on any keypress.
+- Campaign-ready creative: logo -> product -> message -> CTA.
+- Clear migration path from demo virality to protocol-level infrastructure.
 
 ## Campaign Showcase
 
@@ -70,23 +96,19 @@ In plain words: it is a tiny "idle screensaver ad" engine for terminal apps, wit
   </tr>
 </table>
 
-## Sponsorship / 广告合作
+## Sponsorship
 
-**EN**  
 Want to run ads in developer terminals? You can sponsor a campaign with termad and distribute it through our ad-network style integration. We support campaign onboarding, creative integration, and multi-project ad distribution with revenue-share options.
 
-**中文**  
-想投放开发者终端广告？可以通过 termad 发起赞助投放，并接入我们的广告联盟分发能力。支持广告创意接入、投放上线，以及跨项目分发与分成合作。
+### Available Sponsor Slots
 
-### Available Sponsor Slots / 可投放板位
-
-| Slot / 板位 | Format / 形式 | Placement / 位置 | Suitable For / 适合品牌 |
+| Slot | Format | Placement | Suitable For |
 | --- | --- | --- | --- |
 | Hero Idle Slot | 6-20s animated ASCII | Main idle trigger in demo and CLI waiting scenes | Consumer brands, food & beverage, lifestyle |
 | Character Story Slot | Multi-frame mascot sequence | Persona-led campaign block | IP brands, games, community campaigns |
 | Hardware Sponsor Slot | Product-focused storyboard | Performance/dev-tool themed scenes | Hardware, cloud infra, dev tooling |
 
-### Contact / 联系方式
+### Contact
 
 - GitHub: [@Wendell-Guan](https://github.com/Wendell-Guan)
 - Open an issue with title: `[Sponsorship] Brand Name - Campaign Idea`
