@@ -34,33 +34,26 @@ Next: it moves from creative-only assets to machine-readable sponsored capabilit
 
 ## Roadmap
 
-### Step 1 (v1): Human-visible terminal ads
+### V1: Terminal ads for humans (distribution)
 
-Ship the original `termad` experience (including the DVD bounce ad) as a polished open-source package.
+Launch the original `termad` experience (including the DVD bounce creative) to build awareness, community memory, and GitHub momentum.
 
-Goals:
+### V2: Agent-facing tool profiles + sponsored discovery
 
-- Build awareness for the name `termad`.
-- Earn GitHub stars and developer mindshare.
-- Prove that terminal-native ad experiences can be memorable without breaking UX.
+Expand from visual ads to machine-readable tool distribution for Agents.  
+Agents can see structured sponsored recommendations, but sponsorship only increases visibility, never forces tool choice.
 
-### Step 2 (v2): Agent Ad Protocol
+### V3: Default standard for Agent tool discovery
 
-Evolve from "ads people watch" to "sponsored capability offers Agents can evaluate safely."
-
-Planned direction:
-
-- Define an open, machine-readable sponsorship schema.
-- Add transparent sponsored markers and auditable decision logs.
-- Support outcome-based attribution: considered -> selected -> successful task completion.
-- Keep decision integrity: sponsors can buy discovery, not forced selection.
+Become the protocol and distribution standard Agents query by default when selecting tools.  
+Sponsorship and incentive mechanisms remain transparent, auditable, and non-coercive to preserve decision integrity.
 
 ## Why this design works now
 
 - Native terminal shell look: no browser tab, no popup window.
 - Instant entry/exit: show on idle, dismiss on any keypress.
 - Campaign-ready creative: logo -> product -> message -> CTA.
-- Clear migration path from demo virality to protocol-level infrastructure.
+- Clear migration path from v1 awareness to v2 Agent distribution to v3 protocol standard.
 
 ## Campaign Showcase
 
