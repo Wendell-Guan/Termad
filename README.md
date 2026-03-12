@@ -1,63 +1,59 @@
-![termad banner](./cp_image_1772996928140.png)
-
 # termad
 
-<p align="center">
-  <b>From Terminal Ads to Agent Ad Protocol</b><br/>
-  <i>Phase 1 wins attention. Phase 2 defines the standard.</i>
-</p>
+**Idle-time ASCII ads for CLI apps, rendered directly in the terminal and dismissed on any keypress.**
 
-> Ads were built for human attention.  
-> The next protocol is built for Agent decisions.  
-> `termad` is the bridge from terminal creativity to Agent-native distribution.
+<div align="center">
+  <img src="./assets/readme/campaign-mcd.gif" alt="termad demo in terminal" width="880" />
+</div>
 
-<p align="center">
-  <a href="#roadmap">Roadmap</a>
-  ·
-  <a href="#campaign-showcase">Campaign Showcase</a>
-  ·
-  <a href="#sponsorship">Sponsorship</a>
-  ·
-  <a href="#install">Install</a>
-  ·
-  <a href="#public-api">API</a>
-  ·
-  <a href="#demo-cli">Demo</a>
-</p>
+## Problem -> Solution (First Screen)
 
-**Status:** Alpha (`v0.1.0-alpha.1`, package version `0.1.0a1`)
+- **Problem:** CLI apps have dead time (long scans, waiting prompts, paused sessions) that is hard to monetize or sponsor without opening browsers/popups.
+- **Solution:** `termad` watches terminal idle time and plays campaign animations in the same TTY using ANSI frames.
+- **User safety:** any keypress dismisses the ad immediately and restores terminal state.
 
-> "Every media shift creates a new ad protocol.
-> Agent-native software needs an Agent-native ad protocol."
+## Install + Demo (3 Commands)
 
-`termad` started as an idle-time ad runtime for terminal apps.
-It now has a bigger mission: evolve into the open protocol layer for Agent-era sponsorship and distribution.
+```bash
+git clone https://github.com/Wendell-Guan/Termad.git
+cd Termad && python -m pip install -e '.[dev]'
+python examples/demo_open_claw.py --quick
+```
 
-Today: it plays ads in a real terminal shell without opening extra windows or hijacking normal I/O.
-Next: it moves from creative-only assets to machine-readable sponsored capability offers for Agents.
+Package-only install:
 
-## Roadmap
+```bash
+pip install termad
+```
 
-### V1: Terminal ads for humans (distribution)
+## 2-Minute Quickstart
 
-Launch the original `termad` experience (including the DVD bounce creative) to build awareness, community memory, and GitHub momentum.
+1. Install `termad` (`pip install termad`).
+2. Add one `init(...)` call in your CLI app startup.
+3. Optionally load a custom JSON ad and test with `show_now()`.
 
-### V2: Agent-facing tool profiles + sponsored discovery
+```python
+import termad
 
-Expand from visual ads to machine-readable tool distribution for Agents.  
-Agents can see structured sponsored recommendations, but sponsorship only increases visibility, never forces tool choice.
+# Start idle monitor (idempotent)
+termad.init(idle_seconds=30)
 
-### V3: Default standard for Agent tool discovery
+# Optional: use your own campaign asset
+termad.load_ad("path/to/ad.json")
 
-Become the protocol and distribution standard Agents query by default when selecting tools.  
-Sponsorship and incentive mechanisms remain transparent, auditable, and non-coercive to preserve decision integrity.
+# Optional: force preview during development
+termad.show_now()
 
-## Why this design works now
+# On shutdown
+termad.stop()
+```
 
-- Native terminal shell look: no browser tab, no popup window.
-- Instant entry/exit: show on idle, dismiss on any keypress.
-- Campaign-ready creative: logo -> product -> message -> CTA.
-- Clear migration path from v1 awareness to v2 Agent distribution to v3 protocol standard.
+## Use Cases
+
+- **Open-source CLI maintainers:** add sponsor slots to cover hosting/maintenance costs.
+- **Devtool companies:** run product-awareness campaigns in real coding environments.
+- **Community projects/events:** ship seasonal or community messages as lightweight terminal creatives.
+- **Internal platform teams:** display approved internal notices in custom enterprise CLIs.
 
 ## Campaign Showcase
 
@@ -68,16 +64,12 @@ Sponsorship and incentive mechanisms remain transparent, auditable, and non-coer
       <br />
       <b>McDonald's Midnight Fuel</b>
       <br />
-      Logo + fries + burger + late-night CTA, designed for coding-after-dark sessions.
-      <br />
       Asset: <code>termad/assets/mcd_night_ad.json</code>
     </td>
     <td width="33%">
       <img src="./assets/readme/campaign-lobster.gif" alt="Open Claw lobster campaign in terminal shell (animated)" />
       <br />
       <b>Open Claw Lobster Persona</b>
-      <br />
-      Character-led brand identity sequence for memorable terminal presence.
       <br />
       Asset: <code>termad/assets/open_claw_macmini_ad.json</code>
     </td>
@@ -86,104 +78,50 @@ Sponsorship and incentive mechanisms remain transparent, auditable, and non-coer
       <br />
       <b>Mac mini Precision Sponsor</b>
       <br />
-      Hardware sponsorship-style frame set focused on performance and quiet power.
-      <br />
       Asset: <code>termad/assets/open_claw_macmini_ad.json</code>
     </td>
   </tr>
 </table>
 
-## Sponsorship
+## FAQ
 
-Want to run ads in developer terminals? You can sponsor a campaign with termad and distribute it through our ad-network style integration. We support campaign onboarding, creative integration, and multi-project ad distribution with revenue-share options.
+### Who is this for?
 
-### Available Sponsor Slots
+`termad` is for people who own CLI attention surfaces: maintainers of terminal tools, platform teams, and sponsors who want terminal-native distribution.
 
-| Slot | Format | Placement | Suitable For |
-| --- | --- | --- | --- |
-| Hero Idle Slot | 6-20s animated ASCII | Main idle trigger in demo and CLI waiting scenes | Consumer brands, food & beverage, lifestyle |
-| Character Story Slot | Multi-frame mascot sequence | Persona-led campaign block | IP brands, games, community campaigns |
-| Hardware Sponsor Slot | Product-focused storyboard | Performance/dev-tool themed scenes | Hardware, cloud infra, dev tooling |
+### What are alternatives?
 
-### Contact
+- No monetization/sponsorship at all (simplest path).
+- Static banner text inside command output.
+- Web-based ads outside the terminal.
 
-- GitHub: [@Wendell-Guan](https://github.com/Wendell-Guan)
-- Open an issue with title: `[Sponsorship] Brand Name - Campaign Idea`
-- Include: target audience, campaign message, landing URL, expected run window
+`termad` is useful when you want richer visuals while staying inside a TTY workflow.
 
-## Demo Commands for Campaign Content
+### What are current limitations?
 
-Run these to recreate the branded terminal-ad feeling:
-
-```bash
-# McDonald's sequence
-python examples/demo_claude_code.py
-
-# Lobster + Mac mini sequence
-python examples/demo_open_claw.py
-
-# Core engine behavior (DVD-style default ad)
-python examples/demo_cli.py
-```
-
-## Support and Limitations
-
-- Primary runtime target: macOS terminal environments.
-- Best tested in interactive TTY sessions (Terminal.app / iTerm2).
-- If `stdin`/`stdout` are not TTYs, `termad` intentionally runs in safe no-op mode.
-- Alpha caveat: API and behavior may evolve while hardening the SDK.
-
-## Install
-
-```bash
-pip install termad
-```
-
-For local development in this repo:
-
-```bash
-pip install -e '.[dev]'
-```
+- Primary target: macOS terminal environments.
+- Best in interactive TTY sessions (Terminal.app / iTerm2).
+- If `stdin`/`stdout` are not TTYs, `termad` safely no-ops.
+- This is still alpha; API/runtime details may evolve.
 
 ## Public API
 
 ```python
 import termad
 
-# Minimal integration
 termad.init(idle_seconds=30)
-
-# Load a custom ad
-termad.load_ad("path/to/ad.json")
-
-# Manually trigger (for testing)
-termad.show_now()
-
-# Stop monitoring
-termad.stop()
+termad.load_ad("path/to/ad.json")  # or pass a dict
+termad.show_now()                   # dev preview
+termad.stop()                       # safe to call repeatedly
 ```
 
-### API notes
+API notes:
 
 - `init(idle_seconds=30)` is idempotent.
-- Calling `init(...)` again updates configuration and refreshes the idle timer.
-- `load_ad(...)` accepts either:
-  - a JSON file path (`str`), or
-  - an in-memory Python `dict`.
-- `stop()` is safe to call multiple times.
+- Re-calling `init(...)` updates config and refreshes idle timer.
+- `load_ad(...)` accepts JSON path (`str`) or in-memory `dict`.
 
 ## Ad Format
-
-Ads must provide these fields:
-
-- `frames`: list of multi-line ASCII strings
-- `frame_rate`: frames per second (`> 0`)
-- `duration`: max display seconds before auto-dismiss (`> 0`)
-- `metadata`: object containing:
-  - `advertiser` (string)
-  - `url` (string)
-
-Example:
 
 ```json
 {
@@ -199,117 +137,61 @@ Example:
 }
 ```
 
-Validation failures raise `ValueError` with explicit messages.
+Required fields:
 
-## Built-in Example Ad
+- `frames`: list of multi-line ASCII strings
+- `frame_rate`: frames per second (`> 0`)
+- `duration`: max display seconds before auto-dismiss (`> 0`)
+- `metadata.advertiser`: string
+- `metadata.url`: string
 
-Bundled at `termad/assets/dvd_ad.json`:
-
-- Bouncing logo behavior (DVD-style diagonal motion).
-- Edge collision on all four boundaries (velocity inversion by axis).
-- Includes tagline:
-  - `"This idle time brought to you by termad."`
-
-Additional campaign example at `termad/assets/mcd_night_ad.json`:
-
-- Multi-frame sponsor creative: logo -> fries -> burger -> late-night message.
-- Designed for the Claude Code style demo.
-
-Additional campaign example at `termad/assets/open_claw_macmini_ad.json`:
-
-- High-fidelity storyboard creative with lobster-inspired ASCII frames.
-- Mac mini-focused sponsor copy for late-night coding sessions.
-
-## Rendering and Terminal Behavior
-
-- Uses ANSI alternate screen buffer (`\x1b[?1049h` / `\x1b[?1049l`).
-- Hides cursor during playback and restores it on exit.
-- Clears frame background every tick to avoid ghosting.
-- Handles `SIGWINCH` terminal resize gracefully.
-- Minimum supported layout target: `80x24`.
-
-If `stdin`/`stdout` are not TTYs, `termad` runs in safe no-op mode and prints a warning to stderr.
-
-## Demo CLI
-
-Run the fake `dep-audit` scanner:
+## Demo Commands
 
 ```bash
+# Core idle behavior (DVD-style)
 python examples/demo_cli.py
-```
 
-Quick smoke mode:
-
-```bash
-python examples/demo_cli.py --quick
-```
-
-Demo flow:
-
-1. Simulates a realistic dependency security scan with progress + logs.
-2. Prints a vulnerability report.
-3. Waits for user acknowledgement.
-4. During idle wait, `termad` shows the bouncing logo ad.
-
-This demo uses a 10-second idle trigger.
-Default timing is tuned for asciinema-style recordings in the 60-90 second range.
-
-## Claude Code Style Demo
-
-Run a second demo that simulates a realistic Claude Code terminal session, then idles and triggers a multi-frame campaign ad (logo -> fries -> burger -> message):
-
-```bash
+# Claude Code style session + campaign
 python examples/demo_claude_code.py
-```
 
-Quick smoke mode:
-
-```bash
-python examples/demo_claude_code.py --quick
-```
-
-This demo uses:
-
-- idle trigger: 10 seconds
-- ad asset: `termad/assets/mcd_night_ad.json`
-
-## Open Claw Style Demo
-
-Run a third demo that simulates an `Open Claw` terminal workflow and triggers a high-fidelity Mac mini campaign ad:
-
-```bash
+# Open Claw style session + campaign
 python examples/demo_open_claw.py
 ```
 
-Quick smoke mode:
+Quick smoke variants:
 
 ```bash
+python examples/demo_cli.py --quick
+python examples/demo_claude_code.py --quick
 python examples/demo_open_claw.py --quick
 ```
 
-This demo uses:
+## Release Notes Structure
 
-- idle trigger: 10 seconds
-- ad asset: `termad/assets/open_claw_macmini_ad.json`
-- playback: ~26 seconds
+This repo follows:
 
-## Release and Validation
+- `CHANGELOG.md` with Keep a Changelog format.
+- `.github/release.yml` categories for generated GitHub release notes.
 
-One-command local release check:
+## Roadmap
 
-```bash
-python -m pip install -e '.[dev]' && pytest && python -m build && python -m twine check dist/*
-```
+### V1: Terminal ads for humans
 
-Minimal manual acceptance checklist (real TTY):
+Deliver stable terminal-native campaign playback and sponsor-ready creative tooling.
 
-1. Run `python examples/demo_open_claw.py`.
-2. Wait ~10 seconds at the final prompt and confirm the ad starts.
-3. Press any key or Enter and confirm terminal state restores correctly.
-4. Run quick regressions:
-   - `python examples/demo_cli.py --quick`
-   - `python examples/demo_claude_code.py --quick`
-   - `python examples/demo_open_claw.py --quick`
+### V2: Agent-facing sponsored discovery
+
+Move from visual creatives to machine-readable sponsored capability listings for agents.
+
+### V3: Open protocol for agent distribution
+
+Evolve into a transparent, auditable ad/discovery protocol for agent-native software ecosystems.
+
+## Contributing
+
+- Read [CONTRIBUTING.md](./CONTRIBUTING.md).
+- For sponsorship ideas, open an issue with title format: `[Sponsorship] Brand Name - Campaign Idea`.
+- Include target audience, campaign message, landing URL, and expected run window.
 
 ## Project Structure
 
@@ -336,3 +218,7 @@ termad/
 ├── README.md
 └── pyproject.toml
 ```
+
+## License
+
+[MIT](./LICENSE)

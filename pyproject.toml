@@ -5,12 +5,21 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "termad"
 version = "0.1.0a1"
-description = "ASCII animated terminal ads for idle CLI sessions on macOS"
+description = "Idle-time ASCII ad runtime for CLI apps with dismiss-on-key terminal playback"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "termad contributors" }]
 license = "MIT"
-keywords = ["terminal", "cli", "ascii", "ads", "animation", "macos"]
+keywords = [
+  "terminal",
+  "cli",
+  "ascii",
+  "animation",
+  "sponsorship",
+  "terminal-ads",
+  "developer-tools",
+  "macos",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
